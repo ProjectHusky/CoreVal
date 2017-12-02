@@ -20,6 +20,7 @@ def parse_letter(letter):
     password_location = driver.find_element_by_id("weblogin_password")
     password_location.send_keys("Lovelove1!")
 
+
     send_button = driver.find_element_by_name("submit").submit()
     html = response.read()
 
