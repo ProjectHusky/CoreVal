@@ -1,1 +1,5 @@
 # CoreVal
+
+
+## Contributers
+- William Kim
