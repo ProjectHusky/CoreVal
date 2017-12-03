@@ -1,6 +1,7 @@
 from selenium import webdriver
 import csv
 import configparser
+import sys
 
 
 def setup_browser(is_headless):
@@ -208,6 +209,5 @@ def main(is_headless):
             # Write the list to disk as the csv file.
             csv_writer.writerow(course_data)
     csv_file.close()
-
-
 main(True)
+# main(bool(sys.argv[1]))
