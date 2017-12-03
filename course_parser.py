@@ -21,6 +21,7 @@ def setup_browser(is_headless):
 
     # Setup a parser for the config
     config = configparser.ConfigParser()
+    config.read("settings.ini")
     username = config["credentials"]["username"]
     password = config["credentials"]["password"]
 
@@ -75,6 +76,10 @@ def parse_letter(letter, browser):
     courses = []
     for line in html:
         line = line[9:line.find(">") - 1]
+        # If actual course ID contains an ampersand we need to replace the parsed line because it will contain an HTML
+        # ampersand. Replace it with an actual ampersand.
+        if "&amp;" in line:
+            line = line.replace('&amp;', '&')
         courses.append(line)
     return courses
 
@@ -169,6 +174,7 @@ def parse_course(course, html):
             course_data[3] = line[2]
     # Add the ratings after you have looped through everything.
     course_data[2] = ratings
+
     return course_data
 
 
@@ -201,7 +207,6 @@ def main(is_headless):
 
             # Write the list to disk as the csv file.
             csv_writer.writerow(course_data)
-            # adjust the print to include the professor, courseID, ratings (call above), quarter, number enrolled
     csv_file.close()
 
 
