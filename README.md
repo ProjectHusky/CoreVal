@@ -23,6 +23,10 @@ only publicly available data.
 
 ## Usage
 ### Parser
+The parser is mostly intended for a server that hosts a database and services the users, however
+it is possible to use the scraper to procure a local csv file that contains the course evaluation
+data.
+
 To use the parser install the required libraries with followings commands:
 ```shell
 $ pip install selenium

@@ -1,7 +1,6 @@
 from selenium import webdriver
 import csv
 import configparser
-import sys
 
 
 def setup_browser(is_headless):
@@ -179,16 +178,16 @@ def parse_course(course, html):
     return course_data
 
 
-def main(is_headless):
+def main(display):
     """
     This is the main program that runs and connects all the methods together to parse the entire UW course catalog.
 
-    :param is_headless: A boolean value that is passed into the setting up browser to determine whether or not the
+    :param display: A boolean value that is passed into the setting up browser to determine whether or not the
     browser is graphically displayed when the parsing occurs.
     :return: N/A void.
     """
     # Setup the browser.
-    browser = setup_browser(is_headless)
+    browser = setup_browser(not display)
     # Open a csv file to write and a csv writer.
     csv_file = open("data.csv", "w")
     csv_writer = csv.writer(csv_file)
@@ -203,11 +202,16 @@ def main(is_headless):
             html = parse_site(course, browser)
             # Parse the HTML code for the data needed.
             course_data = parse_course(course, html)
+
+            # Decides whether or not the parsed information should be displayed to console.
+            if display:
+                print(course_data)
             # Replace the list in the 3rd argument with a string and replace the commas with spaces for easier parsing.
             course_data[2] = str(course_data[2]).replace(", ", " ")
 
             # Write the list to disk as the csv file.
-            csv_writer.writerow(course_data)
+            # csv_writer.writerow(course_data)
     csv_file.close()
-main(True)
-# main(bool(sys.argv[1]))
+
+
+main(False)
