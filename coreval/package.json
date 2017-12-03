@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "filereader": "^0.10.3",
     "firebase": "^4.7.0",
     "firebase-admin": "^5.5.1",
     "line-reader": "^0.4.0",
+=======
+    "firebase": "^4.7.0",
+>>>>>>> 911d3ce7a06d20356aa7e18620a9e488db45c509
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-favicon": "0.0.11",
     "react-scripts": "1.0.17"
   },
   "scripts": {
