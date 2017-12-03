@@ -37,7 +37,7 @@ export default class QuerySearchView extends React.Component {
                     let courseInfo = courseObj[obj];
                     console.log(courseInfo);
                     html = `<div>
-                        <p>${professor}  ${courseInfo.quarter}</p> <p>`
+                        <p>${professor}  ${courseInfo.quarter},  Based off ${courseInfo.numSurveyed} evals</p> <p>`
                     for (var key in courseInfo.rating) {
                         let catRate = courseInfo.rating[key];
                         html += `${key} ${catRate} \n`
