@@ -13,7 +13,7 @@ Currently the parser only supports the course evaluation data from the last year
 only publicly available data.
 
 
-## Demonstration:
+## Demonstration
 [Prototype](https://projects.invisionapp.com/share/PXERSPO2Q#/screens 
 "Prototype")
 ## Requirements
