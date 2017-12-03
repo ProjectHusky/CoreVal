@@ -1,7 +1,7 @@
 // This application parses the data set from the csv files.
 let firebase = require ("firebase");
 let lineReader = require('line-reader');
-const file = "./dataset/partial.csv";
+const file = "./dataset/data.csv";
 var config = {
     apiKey: "AIzaSyB9LZS3RpqkPnwTyfPfy8fcZuGHYmw8YNE",
     authDomain: "corevalhack.firebaseapp.com",
@@ -36,10 +36,11 @@ lineReader.eachLine(file, (line, lastLine) => {
 function parseLine(line, lastLine) {
     // Parse each token in the line.
     let tokens = line.split(",");
-    let professor = tokens[0].replace(" ","_").replace(".", "");
+    let professor = tokens[0].replace(".", "").replace(" ","_").replace(".","");
+    console.log(professor);
     let course = tokens[1];
-    let quarter = tokens[2];
-    let rating = tokens[3].replace("[", "").replace("]","").split(" ");
+    let rating = tokens[2].replace("[", "").replace("]","").split(" ");
+    let quarter = tokens[3];
     let numSurveyed = tokens[4];
     let ratingObj = {};
 
@@ -53,7 +54,7 @@ function parseLine(line, lastLine) {
     let courseInfo = {
         course: course,
         quarter: quarter,
-        // rating: ratingObj,
+        rating: ratingObj,
         numSurveyed: numSurveyed
     }
 
@@ -65,7 +66,7 @@ function parseLine(line, lastLine) {
 
     // Add the mapping from professor to course
     currClassRef = db.ref(`${profLevel}/${professor}/${course}`);
-    currClassRef.push(numSurveyed)
+    currClassRef.push(courseInfo)
     .then (handleSuccess)
     .catch (handleErr);
 }
@@ -76,7 +77,7 @@ function handleErr(err) {
 }
 
 function handleSuccess(data) {
-    console.log("data pushed");
+    // console.log("data pushed");
 }
 
 
