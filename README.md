@@ -1,5 +1,5 @@
 # CoreVal
-![alt text](https://https://github.com/UWHack/CoreVal/images/logo.png "CoreVal logo")
+![alt text](https://github.com/UWHack/CoreVal/blob/master/images/logo.png "CoreVal logo")
 
 **CoreVal** is a project that provides a parser and online search engine for the University of 
 Washington course evaluation catalog.
