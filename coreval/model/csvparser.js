@@ -3,14 +3,13 @@ let firebase = require ("firebase");
 let lineReader = require('line-reader');
 const file = "./dataset/data.csv";
 var config = {
-    apiKey: "AIzaSyB9LZS3RpqkPnwTyfPfy8fcZuGHYmw8YNE",
-    authDomain: "corevalhack.firebaseapp.com",
-    databaseURL: "https://corevalhack.firebaseio.com",
-    projectId: "corevalhack",
-    storageBucket: "corevalhack.appspot.com",
+    apiKey: "AIzaSyA8vhTFhNOOzpevUohNqCEiswCvadjXGBg",
+    authDomain: "corevalhack-89a84.firebaseapp.com",
+    databaseURL: "https://corevalhack-89a84.firebaseio.com",
+    projectId: "corevalhack-89a84",
+    storageBucket: "",
+    messagingSenderId: "492980149757"
   };
-
-
 // Set up firebase
 firebase.initializeApp(config);
 let db = firebase.database();
@@ -52,7 +51,6 @@ function parseLine(line, lastLine) {
 
     // Prepare this object to be added to firebase
     let courseInfo = {
-        course: course,
         quarter: quarter,
         rating: ratingObj,
         numSurveyed: numSurveyed

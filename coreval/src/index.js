@@ -7,16 +7,17 @@ import "firebase/auth";
 import "firebase/database";
 import registerServiceWorker from './registerServiceWorker';
 
-  let config = {
-    apiKey: "AIzaSyB9LZS3RpqkPnwTyfPfy8fcZuGHYmw8YNE",
-    authDomain: "corevalhack.firebaseapp.com",
-    databaseURL: "https://corevalhack.firebaseio.com",
-    projectId: "corevalhack",
-    storageBucket: "corevalhack.appspot.com",
-    messagingSenderId: "140276705656"
-  };
-  firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyA8vhTFhNOOzpevUohNqCEiswCvadjXGBg",
+  authDomain: "corevalhack-89a84.firebaseapp.com",
+  databaseURL: "https://corevalhack-89a84.firebaseio.com",
+  projectId: "corevalhack-89a84",
+  storageBucket: "",
+  messagingSenderId: "492980149757"
+};
+firebase.initializeApp(config);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
 
