@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import QuerySearchView from "./Components/QuerySearch";
-
+import QueryFormView from "./Components/QueryForm"
 
 
 class App extends Component {
@@ -13,17 +12,11 @@ class App extends Component {
           <img src={require('../src/storm.png')} className="img float-left" alt="logo"></img>
         </header>
         <div>
-          <QuerySearchView/> 
+          <QueryFormView/> 
           <div id="results">
           </div>
         </div>
       </div>
-
-
-
-
-
-
     );
   }
 }
