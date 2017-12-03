@@ -1,7 +1,8 @@
 import React from "react";
 import firebase from "firebase/app";
 import "firebase/database";
-export default class QuerySearchView extends React.Component {
+import QueryListView from "./QueryList"
+export default class QueryFormView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,25 +29,18 @@ export default class QuerySearchView extends React.Component {
         } else {
             path = `/Classes/${this.state.classAbrev}/${this.state.classAbrev}`
         }
+        
         let professor = this.state.professor;
-        db.ref(path).orderByValue().on("value", function(data) {
+        let dataTemp = this.state.courseArr.slice();
+        db.ref(path).orderByValue().on("value", data => {
             data.forEach(function(data) {
-                let courseObj = data.val(); // Information about the class
-                let html = '';
-                for (var obj in courseObj) {
-                    let courseInfo = courseObj[obj];
-                    console.log(courseInfo);
-                    html = `<div>
-                        <p>${professor}  ${courseInfo.quarter},  Based off ${courseInfo.numSurveyed} evals</p> <p>`
-                    for (var key in courseInfo.rating) {
-                        let catRate = courseInfo.rating[key];
-                        html += `${key} ${catRate} \n`
-                    }
-                    html += `</p> </div>`
-                }
-                document.getElementById("results").innerHTML += html;
+                dataTemp.push(data.val());
             });
+            this.setState({
+                courseArr: dataTemp
+            })
         });
+
     }
 
     render() {
@@ -64,6 +58,7 @@ export default class QuerySearchView extends React.Component {
                         }}
                     />
                 </form>
+                <QueryListView result={this.state.courseArr} professor={this.state.professor}/>
             </div>
         );
     }
