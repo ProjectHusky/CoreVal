@@ -1,30 +1,43 @@
 import React from "react";
-import firebase from "firebase/app";
-import "firebase/database";
 import QueryResultView from "./QueryResult";
 export default class QueryListView extends React.Component {
     render() {
-        let queryResult = []
-        let dataArr = this.props.result;
-        if (!dataArr){
+        let queryResultArr = []
+        let results = this.props.results;
+
+        // If is no current result. Display Nothing
+        if (results.length === 0){
             return (
                 <div>
-                    Nothing
                 </div>
             )
-        }
-            dataArr.forEach(data => {
-                let courseObj = data; // Information about the class
-                for (var obj in courseObj) {
-                    let courseInfo = courseObj[obj];
-                    queryResult.push(<QueryResultView key={obj} courseInfo={courseInfo}/>);
+        } else {
+
+            // Create an array of Query Results View to render to the page.
+            results.forEach((queryResult) => {
+                for (var id in queryResult) {
+                    let courseInfo = queryResult[id];
+                    queryResultArr.push(<QueryResultView key={id} courseInfo={courseInfo}/>);
                 }
             })
-        
-        return (
-            <div> 
-                {queryResult}
-            </div>
-        );
+            
+            return (
+                <div className="pt-3">
+                    <table className="table table-striped table-sm table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Quarter Taught</th>
+                                <th>Number of People Surveyed</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {queryResultArr}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
     }
 }

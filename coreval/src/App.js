@@ -9,12 +9,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="jumbotron-fluid mt-4">
-          <img src={require('../src/storm.png')} className="img float-left" alt="logo"></img>
+          <img src={require('../src/storm.png')} className="img" alt="logo"></img>
         </header>
-        <div>
+        <div className="container">
           <QueryFormView/> 
-          <div id="results">
-          </div>
         </div>
       </div>
     );
