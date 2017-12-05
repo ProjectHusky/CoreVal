@@ -1,17 +1,19 @@
+let config = require("../src/config");
 // This application parses the data set from the csv files.
 let firebase = require ("firebase");
 let lineReader = require('line-reader');
 const file = "./dataset/data.csv";
-var config = {
-    apiKey: "AIzaSyA8vhTFhNOOzpevUohNqCEiswCvadjXGBg",
-    authDomain: "corevalhack-89a84.firebaseapp.com",
-    databaseURL: "https://corevalhack-89a84.firebaseio.com",
-    projectId: "corevalhack-89a84",
-    storageBucket: "",
-    messagingSenderId: "492980149757"
-  };
+// var config = {
+//     apiKey: "AIzaSyA8vhTFhNOOzpevUohNqCEiswCvadjXGBg",
+//     authDomain: "corevalhack-89a84.firebaseapp.com",
+//     databaseURL: "https://corevalhack-89a84.firebaseio.com",
+//     projectId: "corevalhack-89a84",
+//     storageBucket: "",
+//     messagingSenderId: "492980149757"
+//   };
 // Set up firebase
-firebase.initializeApp(config);
+// 
+console.log(config);
 let db = firebase.database();
 let classLevel = "Classes";
 let profLevel = "Professors";
@@ -19,11 +21,11 @@ let classref = db.ref(classLevel);
 let profref = db.ref(profLevel);
 
 // Go through each line and parse it adding to firebase.
-lineReader.eachLine(file, (line, lastLine) => {
-    if (line) {
-        parseLine(line, lastLine);
-    }
-});
+// lineReader.eachLine(file, (line, lastLine) => {
+//     if (line) {
+//         parseLine(line, lastLine);
+//     }
+// });
 
 
 /**
@@ -69,13 +71,12 @@ function parseLine(line, lastLine) {
     .catch (handleErr);
 }
 
-
 function handleErr(err) {
     console.log(err);
 }
 
 function handleSuccess(data) {
-    // console.log("data pushed");
+    console.log("data pushed");
 }
 
 

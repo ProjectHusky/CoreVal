@@ -1,14 +1,10 @@
 import React from "react";
-import firebase from "firebase/app";
-import "firebase/database";
+
 export default class QuerySearchView extends React.Component {
     render() {
         let info = this.props.courseInfo;
-        console.log(info);
         let rating = info.rating;
         for (var category in rating) {
-            console.log(category);
-            console.log(typeof rating[category]);
             rating[category] = parseFloat(rating[category].replace("'",""));
         }
         return (
@@ -32,8 +28,6 @@ export default class QuerySearchView extends React.Component {
                         </tbody>
                     </table>
                 </td>
-                    
-                    {/* {info.rating.overall}</td> */}
             </tr>
         );
     }

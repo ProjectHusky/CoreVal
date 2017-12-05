@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "filereader": "^0.10.3",
-    "firebase": "^4.7.0",
     "firebase-admin": "^5.5.1",
     "line-reader": "^0.4.0",
     "firebase": "^4.7.0",
