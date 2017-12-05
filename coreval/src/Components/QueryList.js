@@ -5,14 +5,14 @@ export default class QueryListView extends React.Component {
         let queryResultArr = []
         let results = this.props.results;
 
-        // If is no current result. Display Nothing
+        // No results.
         if (results.length === 0){
             return (
                 <div>
+                    <p> No Results </p>
                 </div>
             )
         } else {
-
             // Create an array of Query Results View to render to the page.
             results.forEach((queryResult) => {
                 for (var id in queryResult) {
@@ -33,7 +33,7 @@ export default class QueryListView extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                                {queryResultArr}
+                            {queryResultArr}
                         </tbody>
                     </table>
                 </div>

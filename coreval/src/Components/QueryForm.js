@@ -9,7 +9,8 @@ export default class QueryFormView extends React.Component {
             professor : "",
             professorQueryFormat: "",
             classAbrev: "",
-            courseArr: []
+            courseArr: [],
+            searchFinished:  false
         }
     }
 
@@ -45,7 +46,8 @@ export default class QueryFormView extends React.Component {
                     queryResultTemp.push(queryResult);
                 });
                 this.setState({
-                    courseArr: queryResultTemp
+                    courseArr: queryResultTemp,
+                    searchFinished: true
                 });
             });
         }
@@ -65,8 +67,8 @@ export default class QueryFormView extends React.Component {
                             this.setState({
                                 professor: evt.target.value,
                                 professorQueryFormat: "",
-                                classAbrev: "",
-                                courseArr: []
+                                courseArr: [],
+                                searchFinished: false
                             }) 
                         }}
                     />
@@ -76,8 +78,11 @@ export default class QueryFormView extends React.Component {
                         </button>
                     </span>
                 </form>
+                
                 {/* Create a QueryListView which renders a bunch of Query Results */}
-                <QueryListView results={this.state.courseArr} prof={this.state.professor}/>
+                {this.state.searchFinished 
+                    ? <QueryListView results={this.state.courseArr} prof={this.state.professor}/> 
+                    : "Welcome" }
             </div>
         );
     }
