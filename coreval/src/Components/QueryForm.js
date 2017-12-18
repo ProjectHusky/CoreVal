@@ -32,13 +32,15 @@ export default class QueryFormView extends React.Component {
             } else if (professorQueryFormat && !this.state.classAbrev) {
                 path = `/Professors/${professorQueryFormat}`
             } else  if (this.state.classAbrev && !professorQueryFormat) {
-                path = `/Classes/${professorQueryFormat}`
+                path = `/Classes/${this.state.classAbrev}`
             } else {
                 path = `/Classes/${this.state.classAbrev}/${this.state.classAbrev}`
             }
             let queryResultTemp = this.state.courseArr.slice();
+            console.log(path);
             // Query on the path and get a snapshot of the results.
             db.ref(path).orderByValue().on("value", querySnapshot => {
+                console.log(querySnapshot.ref);
                 // Add each query result to the temp array and update
                 // and update the state.
                 querySnapshot.forEach(function(queryResultObj) {
@@ -60,12 +62,12 @@ export default class QueryFormView extends React.Component {
                     <input type="text"
                         id="searchbar"
                         className="form-control"
-                        value={this.state.professor}
+                        value={this.state.classAbrev}
                         placeholder="Enter your professor"
                         // Update the professor when the user types
                         onChange={evt => {
                             this.setState({
-                                professor: evt.target.value,
+                                classAbrev: evt.target.value,
                                 professorQueryFormat: "",
                                 courseArr: [],
                                 searchFinished: false

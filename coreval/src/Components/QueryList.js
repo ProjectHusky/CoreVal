@@ -9,7 +9,7 @@ export default class QueryListView extends React.Component {
         if (results.length === 0){
             return (
                 <div>
-                    <p> No Results </p>
+                    <p> No Results were found</p>
                 </div>
             )
         } else {
@@ -17,6 +17,7 @@ export default class QueryListView extends React.Component {
             results.forEach((queryResult) => {
                 for (var id in queryResult) {
                     let courseInfo = queryResult[id];
+                    console.log(queryResult);
                     queryResultArr.push(<QueryResultView key={id} courseInfo={courseInfo}/>);
                 }
             })
