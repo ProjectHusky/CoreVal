@@ -2,11 +2,9 @@ import React from "react";
 import QueryResultView from "./QueryResult";
 export default class QueryListView extends React.Component {
     render() {
-        let queryResultArr = []
-        let results = this.props.results;
-
+        let resultArr = this.props.results;
         // No results.
-        if (results.length === 0){
+        if (resultArr.length === 0){
             return (
                 <div>
                     <p> No Results were found</p>
@@ -14,14 +12,12 @@ export default class QueryListView extends React.Component {
             )
         } else {
             // Create an array of Query Results View to render to the page.
-            results.forEach((queryResult) => {
-                for (var id in queryResult) {
-                    let courseInfo = queryResult[id];
-                    console.log(queryResult);
-                    queryResultArr.push(<QueryResultView key={id} courseInfo={courseInfo}/>);
-                }
-            })
-            
+            console.log(resultArr[0]);
+            let queryViewArr = [];
+            for (let i = 0; i < resultArr.length; i++) {
+                queryViewArr.push(<QueryResultView key={i} courseEval={resultArr[i]}/>);
+            }
+            // return (<h1> ENTER HERE</h1>);
             return (
                 <div className="pt-3">
                     <table className="table table-striped table-sm table-condensed">
@@ -34,7 +30,7 @@ export default class QueryListView extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {queryResultArr}
+                            {queryViewArr}
                         </tbody>
                     </table>
                 </div>

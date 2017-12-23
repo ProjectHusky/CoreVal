@@ -2,11 +2,7 @@ import React from "react";
 
 export default class QuerySearchView extends React.Component {
     render() {
-        let info = this.props.courseInfo;
-        let rating = info.rating;
-        for (var category in rating) {
-            rating[category] = parseFloat(rating[category].replace("'",""));
-        }
+        let info = this.props.courseEval;
         return (
             <tr>
                 <td>{info.course}</td>
@@ -21,10 +17,10 @@ export default class QuerySearchView extends React.Component {
                             <td>Effectiveness</td>
                         </thead>
                         <tbody>
-                            <td>{rating.overall}</td>
-                            <td>{rating.content}</td>
-                            <td>{rating.contribution}</td>
-                            <td className="ratingTable">{rating.effective}</td>
+                            <td>{info.overall}</td>
+                            <td>{info.content}</td>
+                            <td>{info.contribution}</td>
+                            <td className="ratingTable">{info.effectiveness}</td>
                         </tbody>
                     </table>
                 </td>

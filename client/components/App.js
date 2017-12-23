@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-// import './App.css';
 import QueryFormView from "./QueryForm"
 
 class App extends Component {
