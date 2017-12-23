@@ -5,7 +5,7 @@ export default class QueryFormView extends React.Component {
         super(props);
         this.state = {
             query: "",
-            courseArr: [],
+            resultArr: [],
             searchFinished:  false
         }
     }
@@ -16,41 +16,21 @@ export default class QueryFormView extends React.Component {
         evt.preventDefault();
         fetch(`/api/eval/${this.state.query}`, {
         }).then((response) => {
+            console.log(response);
             return response.json();
         }).then((jsonResponse) => {
             this.setState({
-                courseArr: jsonResponse.results
+                resultArr: jsonResponse.results,
+                searchFinished: true
             })
             console.log(jsonResponse.results);
         }).catch((err) => {
             console.log(err);
         });
-
-
-
-
-        // if (this.state.courseArr.length === 0) {
-        //     con.connect(function(err) {
-        //         if (err) throw err;
-        //         let query = `SELECT * FROM evaluations WHERE professor LIKE "%${this.state.query}%" || course LIKE "%${this.state.query}%"`
-        //         con.query(query, (err, result) => {
-        //             if (err) {
-        //                 console.log(err);
-        //             } else {
-        //                 this.setState({
-        //                     courseArr: result,
-        //                     searchFinished: true
-        //                 });
-        //             }
-        //             console.log(result);
-        //         });
-        //     })
-        // }
-
-        
     }
 
     render() {
+        console.log(this.state.resultArr);
         return (
             <div className="pt-3 pb-3"> 
                 <form onSubmit={evt => this.handleSubmit(evt)} className="input-group">
@@ -76,7 +56,7 @@ export default class QueryFormView extends React.Component {
                 
                 {/* Create a QueryListView which renders a bunch of Query Results */}
                 {this.state.searchFinished 
-                    ? <QueryListView results={this.state.courseArr}/> 
+                    ? <QueryListView results={this.state.resultArr}/> 
                     : "Welcome" }
             </div>
         );

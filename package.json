@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "webpack"
   },
-  "author": "Tony Vo",
+  "author": "William Kim, Tuan Ma, Thoa Nguyen, Tony Vo",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
@@ -22,5 +22,4 @@
     "webpack": "^3.10.0"
   },
   "proxy": "http://localhost:3000/"
-
 }
