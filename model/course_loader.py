@@ -1,6 +1,6 @@
 import mysql.connector
 
-cnx = mysql.connector.connect(user='root', password='Firefox00!',
+cnx = mysql.connector.connect(user='root', password='secretPassword',
                               host='127.0.0.1',
                               database="coreval")
 cursor = cnx.cursor();
