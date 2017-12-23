@@ -75,7 +75,7 @@ export default class QueryFormView extends React.Component {
                         }}
                     />
                     <span className="input-group-btn">
-                        <button id="searchbutton" type="button" className="btn btn-success">
+                        <button id="searchbutton" type="button" className="btn btn-f6de9f">
                             <span className="glyphicon glyphicon-search"> Search </span>
                         </button>
                     </span>
