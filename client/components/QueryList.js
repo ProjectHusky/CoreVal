@@ -3,11 +3,10 @@ import QueryResultView from "./QueryResult";
 export default class QueryListView extends React.Component {
     render() {
         let resultArr = this.props.results;
-        // No results.
         if (resultArr.length === 0){
             return (
                 <div>
-                    <p> No Results were found</p>
+                    <p> <strong>{resultArr.length}</strong> search results were found for <strong>{this.props.query}</strong></p>
                 </div>
             )
         } else {
@@ -15,24 +14,14 @@ export default class QueryListView extends React.Component {
             console.log(resultArr[0]);
             let queryViewArr = [];
             for (let i = 0; i < resultArr.length; i++) {
-                queryViewArr.push(<QueryResultView key={i} courseEval={resultArr[i]}/>);
+                queryViewArr.push(
+                    <QueryResultView key={i} courseEval={resultArr[i]}/>
+                );
             }
             // return (<h1> ENTER HERE</h1>);
             return (
-                <div className="pt-3">
-                    <table className="table table-striped table-sm table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Course</th>
-                                <th>Quarter Taught</th>
-                                <th>Number of People Surveyed</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {queryViewArr}
-                        </tbody>
-                    </table>
+                <div className="container">
+                    {queryViewArr}
                 </div>
             );
         }
