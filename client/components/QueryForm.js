@@ -33,11 +33,11 @@ export default class QueryFormView extends React.Component {
 
     render() {
         return (
-            <div className="container"> 
+            <div className="container mb-4"> 
                 <form onSubmit={evt => this.handleSubmit(evt)} className="input-group">
                     <input type="text"
                         id="searchbar"
-                        className="form-control"
+                        className="form-control mb-4"
                         value={this.state.activeQuery}
                         placeholder="Enter a UW Professor or Class"
                         onChange={evt => {
@@ -48,7 +48,7 @@ export default class QueryFormView extends React.Component {
                             }) 
                         }}
                     />
-                        <span className="input-group-btn">
+                        <span className="input-group-btn mb-4">
                             <button id="searchbutton" type="submit" className="btn btn-success">
                                 <span className="glyphicon glyphicon-search"> Search </span>
                             </button>

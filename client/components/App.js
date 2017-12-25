@@ -11,12 +11,12 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="container-full">
+          <div className="container-full mb-4" id="searchResults">
             <QueryFormView/>
           </div>
-          <footer className="container-full" id="footer">
+          <div className="container-full" id="footer">
               <div className="container">THIS IS THE FOOTER</div>
-          </footer>
+          </div>
       </div>
     );
   }
