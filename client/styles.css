@@ -1,0 +1,38 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#app body {
+    margin: 0 0 100px; /* bottom = footer height */
+    background-color: #d9d9d9;
+    padding: 25px;
+}
+
+footer {
+    background-color: #444444;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
+}
+
+.card {
+    background-color: #d9d9d9;
+}
+
+#header {
+    background-color:#4b2e83;
+    margin-bottom: 5px;
+    padding: 1rem;
+}
+
+#searchResults {
+    background-color: #b7a57a;
+}
+
+#logo {
+    width: 25%;
+}

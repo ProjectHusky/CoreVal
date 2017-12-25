@@ -11,7 +11,6 @@ export default class QueryListView extends React.Component {
             )
         } else {
             // Create an array of Query Results View to render to the page.
-            console.log(resultArr[0]);
             let queryViewArr = [];
             for (let i = 0; i < resultArr.length; i++) {
                 queryViewArr.push(
@@ -20,7 +19,7 @@ export default class QueryListView extends React.Component {
             }
             // return (<h1> ENTER HERE</h1>);
             return (
-                <div className="container">
+                <div className="container pt-1">
                     {queryViewArr}
                 </div>
             );
