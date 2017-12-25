@@ -33,7 +33,7 @@ export default class QuerySearchView extends React.Component {
         let contributionRating = this.styleRating(info.contribution);
         let effectivenessRating = this.styleRating(info.effectiveness);
         return (
-            <div className="card mt-4">
+            <div className="card mb-4">
                 <div className="card-block">
                     <h4 className="card-title">{info.course} {info.quarter}</h4>
                     <h6 className="card-subtitle mb-2">{info.professor}</h6>
