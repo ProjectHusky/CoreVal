@@ -35,3 +35,8 @@ body {
 #logo {
     max-width: 200px;
 }
+
+#searchbutton {
+    color: #ffffff;
+    background-color: #b7a57a
+}

@@ -5,7 +5,7 @@ export default class QueryListView extends React.Component {
         let resultArr = this.props.results;
         if (resultArr.length === 0){
             return (
-                <div>
+                <div className="container">
                     <p> <strong>{resultArr.length}</strong> search results were found for <strong>{this.props.query}</strong></p>
                 </div>
             )
@@ -17,9 +17,9 @@ export default class QueryListView extends React.Component {
                     <QueryResultView key={i} courseEval={resultArr[i]}/>
                 );
             }
-            // return (<h1> ENTER HERE</h1>);
             return (
-                <div className="container pt-1">
+                <div className="container">
+                    <p> <strong>{resultArr.length}</strong> search results were found for <strong>{this.props.query}</strong></p>
                     {queryViewArr}
                 </div>
             );
