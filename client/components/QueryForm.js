@@ -15,7 +15,7 @@ export default class QueryFormView extends React.Component {
     // Send request to our our api upon submit.
     handleSubmit(evt) {
         evt.preventDefault();
-        if (this.state.activeQuery.length >= 3) {
+        if (this.state.activeQuery.length >= 3 && this.state.activeQuery != this.state.currentQuery) {
             fetch(`/api/eval/${this.state.activeQuery}`, {
             }).then((response) => {
                 return response.json();
@@ -33,32 +33,33 @@ export default class QueryFormView extends React.Component {
 
     render() {
         return (
-            <div className="container mb-4"> 
-                <form onSubmit={evt => this.handleSubmit(evt)} className="input-group">
-                    <input type="text"
-                        id="searchbar"
-                        className="form-control mb-4"
-                        value={this.state.activeQuery}
-                        placeholder="Enter a UW Professor or Class"
-                        onChange={evt => {
-                            this.setState({
-                                // Update the professor when the user types
-                                activeQuery: evt.target.value,
-                                searchFinished: false
-                            }) 
-                        }}
-                    />
+            <div className="container-full mb-4" id="searchResults">
+                <div className="container"> 
+                    <form onSubmit={evt => this.handleSubmit(evt)} className="input-group">
+                        <input type="text"
+                            id="searchbar"
+                            className="form-control mb-4"
+                            value={this.state.activeQuery}
+                            placeholder="Enter a UW Professor or Class. eg (CSE312) (Adam Blank)"
+                            onChange={evt => {
+                                this.setState({
+                                    // Update the professor when the user types
+                                    activeQuery: evt.target.value,
+                                    searchFinished: false
+                                }) 
+                            }}
+                        />
                         <span className="input-group-btn mb-4">
-                            <button id="searchbutton" type="submit" className="btn btn-success">
+                            <button id="searchbutton" type="submit" className="btn">
                                 <span className="glyphicon glyphicon-search"> Search </span>
                             </button>
                         </span>
-                </form>
-
+                    </form>
+                </div>
                 {/* Create a QueryListView which renders Query Results */}
                 {this.state.searchFinished
                     ? <QueryListView query={this.state.currentQuery} results={this.state.resultArr}/> 
-                    : <p>Hello</p>}
+                    : <div className="container">Home Page</div>}
             </div>
         );
     }
