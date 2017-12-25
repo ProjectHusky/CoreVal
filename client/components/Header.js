@@ -5,7 +5,7 @@ class HeaderView extends Component {
     return( 
         <div id="header" className="container-full">
             <div className="container">     
-                <img src={require('../images/coreval_logo.png')} className="img-responsive" id="logo" alt="logo"></img>
+                <img src={require('../images/coreval_logo_small.png')} className="img-responsive" id="logo" alt="logo"></img>
             </div>
         </div>
     );
