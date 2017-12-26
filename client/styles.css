@@ -40,3 +40,17 @@ body {
     color: #ffffff;
     background-color: #b7a57a
 }
+
+.about {
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.contributor {
+    color: #ffffff;
+    padding: 2px;
+}
+
+.contributor:hover {
+    color: #F5F5F5;
+}
