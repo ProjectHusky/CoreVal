@@ -1,0 +1,27 @@
+{
+  "name": "coreval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "rebuild": "webpack && node bin/www"
+  },
+  "author": "William Kim, Tuan Ma, Thoa Nguyen, Tony Vo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "url-loader": "^0.6.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.10.0"
+  },
+  "proxy": "http://localhost:3000/"
+}
