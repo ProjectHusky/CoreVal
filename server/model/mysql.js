@@ -12,20 +12,12 @@
 let mysql = require('mysql');
 
 // Establish a connection to databse.
-let connection = mysql.createConnection({
+let pool = mysql.createPool({
     host: process.env.CLEARDB_DATABASE_HOST,
     user: process.env.CLEARDB_DATABASE_USER,
     password: process.env.CLEARDB_DATABASE_PASSWORD,
     database: process.env.CLEARDB_DATABASE_DB
 });
 
-// Connect to database!
-connection.connect((err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Connecting to db");
-    }
-});
 
-module.exports = connection;
+module.exports = pool;
