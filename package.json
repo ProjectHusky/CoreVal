@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git://github.com/ProjectHusky/CoreVal.git"
   },
+  "engine": "9.3.0",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
