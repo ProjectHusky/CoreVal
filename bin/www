@@ -2,6 +2,6 @@ let app = require('../server/server');
 
 // Start the server
 let port = 3000;
-app.listen(port, function() {
-    console.log("Running on localhost on port " + port);
+app.listen(process.env.PORT || port, function() {
+    console.log("Application started");
 });
