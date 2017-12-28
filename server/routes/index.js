@@ -13,7 +13,7 @@
 // Imports
 let path = require('path');                 // Path module
 let router = require('express').Router();   // Express Routing
-let dbCon = require('../model/mysql');      // Database
+let dbPool = require('../model/mysql');      // Database
 
 /**
  * Routes to: /
@@ -33,21 +33,25 @@ router.get('/', (req, res) => {
 router.get('/api/eval/:query', (req, res) => {
     let userQuery = req.params.query;
 
-    // Set up a simple SQL search by professor or course.
-    let sqlCommand =`SELECT * FROM evaluations ` +
-                    `WHERE professor LIKE '%${userQuery}%' || ` +
-                    `course LIKE '%${userQuery}%'`
+    dbPool.getConnection ((err, connection) => {
+        // Set up a simple SQL search by professor or course.
+        let sqlCommand =`SELECT * FROM evaluations ` +
+                        `WHERE professor LIKE '%${userQuery}%' || ` +
+                        `course LIKE '%${userQuery}%'`
 
-    // Query our database and respond to the request.    
-    dbCon.query(sqlCommand, (err, results) => {
-        if (err) {
-            res.status(404);
-            res.send("Bad Data");
-        } else {
-            // Results back from Database query. Send back the JSON.
-            res.status(200);
-            res.send(JSON.stringify({results}));
-        }
+        // Query our database and respond to the request.    
+        connection.query(sqlCommand, (err, results) => {
+            if (results) {
+                res.status(200);
+                res.send(JSON.stringify({results}));
+            }
+
+            connection.release();
+            if (err) {
+                res.status(404);
+                res.send("Bad Data");
+            }
+        });
     });
 });
 
