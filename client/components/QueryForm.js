@@ -40,7 +40,7 @@ export default class QueryFormView extends React.Component {
                             id="searchbar"
                             className="form-control mb-4"
                             value={this.state.activeQuery}
-                            placeholder="Enter a UW Professor or Class. eg (CSE312) (Adam Blank)"
+                            placeholder="Enter a UW Professor or Class. eg (ENG131) (John Doe)"
                             onChange={evt => {
                                 this.setState({
                                     // Update the professor when the user types
