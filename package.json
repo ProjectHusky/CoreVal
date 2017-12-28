@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run webpack && node bin/www",
-    "webpack": "webpack"
+    "build": "webpack",
+    "start": "node ./bin/www"
   },
   "author": "William Kim, Tuan Ma, Thoa Nguyen, Tony Vo",
   "repository": {
