@@ -12,10 +12,10 @@
 let mysql = require('mysql');
 // Establish a connection to databse.
 let connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'secretPassword',
-    database: 'coreval'
+    host: process.env.ClEARDB_DATABASE_HOST,
+    user: process.env.ClEARDB_DATABASE_USER,
+    password: process.env.ClEARDB_DATABASE_PASSWORD,
+    database: process.env.ClEARDB_DATABASE_DB
 });
 
 // Connect to database!
