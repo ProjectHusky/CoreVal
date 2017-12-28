@@ -28,5 +28,5 @@
     "babel-preset-react": "^6.24.1",
     "webpack": "^3.10.0"
   },
-  "proxy": "http://localhost:3000/"
+  "proxy": "https://coreval.herokuapp.com/"
 }
