@@ -1,6 +1,6 @@
 import React from "react";
 import QueryListView from "./QueryList"
-
+import LandingPageView from "./LandingPage"
 export default class QueryFormView extends React.Component {
     constructor(props) {
         super(props);
@@ -59,7 +59,7 @@ export default class QueryFormView extends React.Component {
                 {/* Create a QueryListView which renders Query Results */}
                 {this.state.searchFinished
                     ? <QueryListView query={this.state.currentQuery} results={this.state.resultArr}/> 
-                    : <div className="container">Home Page</div>}
+                    : <LandingPageView/>}
             </div>
         );
     }

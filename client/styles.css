@@ -54,3 +54,28 @@ body {
 .contributor:hover {
     color: #F5F5F5;
 }
+
+#mainPage {
+    background-color:#4b2e83;
+
+}
+
+#mainPage img {
+    max-width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+    #mainPage img {
+        max-width: 500px;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    #mainPage img {
+        max-width: 800px;   
+    }
+}
